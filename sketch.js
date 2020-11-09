@@ -70,10 +70,11 @@ obs();
 b.x=200
 }
   monkey.velocityY=monkey.velocityY+0.8
-  if(touches.length<0||keyDown("space") && monkey.y>=height-130){
-monkey.velocityY=-17;  
-   touches=[]
-  }
+    if((touches.lenght > 0 || keyDown("SPACE")) &&monkey.y  >= height-130) {
+
+      monkey.velocityY = -10;
+      touches = [];
+    }
     if(monkey.isTouching(bgroup)){
 bgroup.destroyEach();
     score1=score1+10 
