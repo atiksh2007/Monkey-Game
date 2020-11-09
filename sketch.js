@@ -26,7 +26,7 @@ var restartImage
 function preload(){
   
   
-  monkeyrunning = loadAnimation("sprite_0.png","sprite_1.png","sprite_2.png","sprite_3.png","sprite_4.png","sprite_5.png","sprite_6.png","sprite_7.png","sprite_8.png")
+  monkeyrunning =            loadAnimation("sprite_0.png","sprite_1.png","sprite_2.png","sprite_3.png","sprite_4.png","sprite_5.png","sprite_6.png","sprite_7.png","sprite_8.png")
   
   bananaImage = loadImage("banana.png");
   obstaceImage = loadImage("obstacle.png");
@@ -40,24 +40,27 @@ function preload(){
 
 
 function setup() {
-   b=createSprite(200,200,10,10);
+  createCanvas(windowWidth,windowHeight)
+   b=createSprite(windowWidth-200,windowHeight-380,10,10);
   b.addAnimation("display",bimage);
-    monkey =createSprite(100,350,10,10)
+  b.scale=1.2
+    monkey =createSprite(windowWidth-700,windowHeight-200,10,10)
 monkey.addAnimation("running",monkeyrunning);
-monkey.scale=0.1
-ground=createSprite(200,385,400,10);
+monkey.scale=0.2
+ground=createSprite(windowWidth-500,windowHeight-50,width,10);
 
-ground.visible=false;
+//ground.visible=false;
     ogroup=createGroup();
   bgroup=createGroup();
-  restart=createSprite(200,200);
+  restart=createSprite(windowWidth/2,windowHeight/2);
   restart.addImage("present",restartImage);
   restart.visible=false;
 }
 
 
 function draw() {
-background("orange");
+background(bimage);
+
   if(gamestate===PLAY){
     restart.visible=false;
   bannana();
@@ -67,8 +70,9 @@ obs();
 b.x=200
 }
   monkey.velocityY=monkey.velocityY+0.8
-  if(keyDown("space") && monkey.y>=340){
+  if(touches.length>0||keyDown("space") && monkey.y>=height-130){
 monkey.velocityY=-17;  
+   touches=[]
   }
     if(monkey.isTouching(bgroup)){
 bgroup.destroyEach();
@@ -78,7 +82,6 @@ bgroup.destroyEach();
      if(monkey.isTouching(ogroup)){
       gamestate=END
      }
-
   }
   else if(gamestate===END){
         monkey.velocityX=0;
@@ -95,9 +98,11 @@ bgroup.destroyEach();
     frameCount=0;
     if(mousePressedOver(restart)){
 reset();
-    } 
-      
-   
+    }
+if(touches.length>0 || keyDown("SPACE")) {      
+reset();
+touches = []
+}
   }
   
   drawSprites();
@@ -106,7 +111,7 @@ textStyle(BOLD);
   fill("black")
 stroke("pink");
 strokeWeight(15)
-text("Survival Time:"+score,150,100);
+text("Survival Time:"+score,windowWidth/2,windowHeight-500);
 score=Math.ceil(frameCount/5)
   
   
@@ -114,9 +119,9 @@ score=Math.ceil(frameCount/5)
   textSize(20);
   textStyle(BOLD);
   fill("black");
-  stroke("orange");
+  stroke("yellow");
   strokeWeight(15);
-  text("Points-"+score1,170,150)
+  text("Points-"+score1,windowWidth/2,windowHeight-450)
 }
 function reset(){
 gamestate=PLAY;
@@ -127,7 +132,7 @@ gamestate=PLAY;
 }
 function bannana (){
   if(frameCount%150===0){
-    var ban =createSprite(400,200,10,10);
+    var ban =createSprite(windowHeight-5,windowWidth-120,10,10);
     ban.velocityX=-(8+score/10);
     ban.y=Math.round(random(200,380));
     ban.addImage("display",bananaImage);
@@ -139,12 +144,12 @@ function bannana (){
 }
 function obs(){
   if(frameCount%100===0){
-    var o =createSprite(400,360,10,10);
-   o.velocityX=-(6+score/10)
+    var o =createSprite(windowWidth-50,windowHeight-100,10,10);
+   o.velocityX=-(8+score/30)
     o.debug=true;
     o.setCollider("circle",0,0,200)
     o.addImage("apply",obImage)
-    o.scale=0.2;
+    o.scale=0.3;
     o.lifetime=400;
 ogroup.add(o);
   }
