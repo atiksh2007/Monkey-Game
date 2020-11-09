@@ -70,7 +70,7 @@ obs();
 b.x=200
 }
   monkey.velocityY=monkey.velocityY+0.8
-  if(touches.length>0||keyDown("space") && monkey.y>=height-130){
+  if(touches.length<0||keyDown("space") && monkey.y>=height-130){
 monkey.velocityY=-17;  
    touches=[]
   }
