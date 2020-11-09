@@ -41,7 +41,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth,windowHeight)
-   b=createSprite(windowWidth-200,windowHeight-380,10,10);
+   b=createSprite(windowWidth-200,windowHeight-380,windowWidth,windowHeight);
   b.addAnimation("display",bimage);
   b.scale=1.2
     monkey =createSprite(windowWidth-700,windowHeight-200,10,10)
@@ -67,7 +67,7 @@ background(bimage);
 obs();
   b.velocityX=-4
   if(b.x===0){
-b.x=200
+b.x=width/2
 }
   monkey.velocityY=monkey.velocityY+0.8
     if((touches.lenght > 0 || keyDown("SPACE")) &&monkey.y  >= height-130) {
