@@ -65,7 +65,7 @@ background(bimage);
     restart.visible=false;
   bannana();
 obs();
-  b.velocityX=-4
+  b.velocityX=-0
   if(b.x===0){
 b.x=width/2
 }
