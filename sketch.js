@@ -72,7 +72,7 @@ b.x=width/2
   monkey.velocityY=monkey.velocityY+0.8
     if((touches.lenght > 0 || keyDown("SPACE")) && monkey.y  >= height-150) {
 
-      monkey.velocityY = -15;
+      monkey.velocityY = -35;
       touches = [];
     }
     if(monkey.isTouching(bgroup)){
