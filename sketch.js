@@ -45,11 +45,11 @@ function setup() {
   b.addAnimation("display",bimage);
   b.scale=1.2
     monkey =createSprite(windowWidth-700,windowHeight-200,10,10)
-//monkey.addAnimation("running",monkeyrunning);
+monkey.addAnimation("running",monkeyrunning);
 monkey.scale=0.2
 ground=createSprite(windowWidth-500,windowHeight-50,width,10);
 
-//ground.visible=false;
+ground.visible=false;
     ogroup=createGroup();
   bgroup=createGroup();
   restart=createSprite(windowWidth/2,windowHeight/2);
