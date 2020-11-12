@@ -41,13 +41,13 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth,windowHeight)
-   b=createSprite(windowWidth-200,windowHeight-380,windowWidth,windowHeight);
+   b=createSprite(windowWidth-200,windowHeight-380,10,10);
   b.addAnimation("display",bimage);
   b.scale=1.2
     monkey =createSprite(windowWidth-700,windowHeight-200,10,10)
 monkey.addAnimation("running",monkeyrunning);
 monkey.scale=0.2
-ground=createSprite(windowWidth-500,windowHeight-50,width,10);
+ground=createSprite(windowWidth-500,windowHeight-50,width*2,10);
 
 ground.visible=false;
     ogroup=createGroup();
@@ -65,16 +65,15 @@ background(bimage);
     restart.visible=false;
   bannana();
 obs();
-  b.velocityX=-0
+  b.velocityX=-4
   if(b.x===0){
-b.x=width/2
+b.x=200
 }
   monkey.velocityY=monkey.velocityY+0.8
-    if((touches.lenght > 0 || keyDown("SPACE")) && monkey.y  <= height-230) {
-
-      monkey.velocityY = -35;
-      touches = [];
-    }
+  if(touches.length>0||keyDown("space") && monkey.y>=height-150){
+monkey.velocityY=-17;  
+   touches=[]
+  }
     if(monkey.isTouching(bgroup)){
 bgroup.destroyEach();
     score1=score1+10 
