@@ -144,7 +144,7 @@ function bannana (){
 }
 function obs(){
   if(frameCount%100===0){
-    var o =createSprite(windowWidth-50,windowHeight-120,10,10);
+    var o =createSprite(windowWidth-50,windowHeight-100,10,10);
    o.velocityX=-(8+score/30)
     o.debug=true;
     o.setCollider("circle",0,0,200)
