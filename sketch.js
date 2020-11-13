@@ -69,7 +69,7 @@ obs();
   if(b.x===0){
 b.x=200
 }
-  monkey.velocityY=monkey.velocityY+0.8
+  monkey.velocityY=monkey.velocityY+0.8;
   if(touches.length>0||keyDown("space") && monkey.y>=height-150){
 monkey.velocityY=-17;  
    touches=[]
@@ -144,7 +144,7 @@ function bannana (){
 }
 function obs(){
   if(frameCount%100===0){
-    var o =createSprite(windowWidth-50,450,10,10);
+    var o =createSprite(windowWidth-50,550,10,10);
    o.velocityX=-(8+score/30)
     o.debug=true;
     o.setCollider("circle",0,0,200)
