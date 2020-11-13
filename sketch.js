@@ -41,10 +41,10 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth,windowHeight)
-   b=createSprite(windowWidth-200,windowHeight-380,10,10);
+   b=createSprite(windowWidth-200,300,windowWidth,windowHeight);
   b.addAnimation("display",bimage);
   b.scale=1.2
-    monkey =createSprite(windowWidth-700,windowHeight-200,10,10)
+    monkey =createSprite(windowWidth-700,300,10,10)
 monkey.addAnimation("running",monkeyrunning);
 monkey.scale=0.2
 ground=createSprite(windowWidth-500,windowHeight-50,width*2,10);
@@ -132,7 +132,7 @@ gamestate=PLAY;
 }
 function bannana (){
   if(frameCount%150===0){
-    var ban =createSprite(windowHeight-5,windowWidth-120,10,10);
+    var ban =createSprite(windowHeight-5,200,10,10);
     ban.velocityX=-(8+score/10);
     ban.y=Math.round(random(200,380));
     ban.addImage("display",bananaImage);
@@ -144,7 +144,7 @@ function bannana (){
 }
 function obs(){
   if(frameCount%100===0){
-    var o =createSprite(windowWidth-50,windowHeight-100,10,10);
+    var o =createSprite(windowWidth-50,450,10,10);
    o.velocityX=-(8+score/30)
     o.debug=true;
     o.setCollider("circle",0,0,200)
